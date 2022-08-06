@@ -1,0 +1,15 @@
+// bootstrap grid
+$grid-gutter-width: 15px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 375px,
+  md: 768px,
+  lg: 1280px,
+) !default;
+
+$container-max-widths: (
+  sm: 330px,
+  md: 738px,
+  lg: 1230px,
+) !default;
