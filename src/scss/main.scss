@@ -1,7 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.d-none {
+    display: none;
+}
+
+.d-flex {
+    display: flex;
+}
+
+// оптимизация размера картинок
+.responsive {
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	height: 0;
+	img,
+	video,
+	iframe {
+		position: absolute;
+		height: 100%;
+		width: 100%;
+	}
+}
+
+
 @import "variables";
 @import "vendors";
 @import "mixins";
 @import "fonts";
+@import "typography";
+@import "elements";
+@import "header";
+
+.container {
+    max-width: 100%;
+    padding: 0 10px;
+    margin: 0 auto;
+    @include devices (md) {
+      max-width: 768px;
+      padding: 0 30px;
+    }
+    @include devices (lg) {
+      max-width: 1280px;
+      padding: 0 40px;
+    }
+}
 
 // * {
 //   box-sizing: border-box;
@@ -14,30 +80,7 @@
 //   overflow: hidden;
 // }
 
-// .container {
-//   max-width: 1230px;
-//   margin: 0 auto;
-//   padding: 0 15px;
-//   @media(max-width: 992px) {
-//     max-width: 738px;
-//   }
-//   @media(max-width:767px) {
-//     max-width: none;
-//   }
-// }
-
 // .row {
 //   display: flex;
 //   margin: 0 -15px;
 // }
-
-header {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 22px;
-}
-
-footer {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;
-    font-style: italic;
-}

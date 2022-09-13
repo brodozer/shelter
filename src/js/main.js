@@ -1,5 +1,6 @@
 const body = document.body;
 const counter = 25;
+const btn = body.querySelector('.btn_disable');
 const lockScroll = () => {
     const scrollWidth = window.innerWidth - body.clientWidth;
     const scrollPosition = window.pageYOffset;
@@ -16,8 +17,13 @@ const lockScroll = () => {
     console.log('scroll lock');
 };
 
+const disabled = () => {
+    btn.disabled = true;
+}
+
 import {unlockScroll} from './menu.js';
 
 lockScroll();
+// disabled();
 
 const myTimeout = setTimeout(unlockScroll(body), 5000);

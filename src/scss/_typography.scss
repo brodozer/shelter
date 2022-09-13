@@ -1,0 +1,46 @@
+// headers
+
+h2, h3, h4, p.georgia {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 32px;
+    //font-size: 44px;
+}
+
+h3 {
+    font-size: 25px;
+    //font-size: 35px;
+}
+
+h4 {
+    font-size: 20px;
+}
+
+h2, h3, h4 {
+    color: #545454;
+}
+
+// paragraphs
+
+p.arial, p.italic {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p.arial {
+    font-size: 15px;
+    color: #4C4C4C;
+}
+
+p.italic {
+    font-size: 12px;
+    font-style: italic;
+    color: #B2B2B2;
+}
+
+p.georgia {
+    font-size: 15px;
+    color: #000;
+}

@@ -38,6 +38,7 @@
         "gulp-sass": "^5.1.0",
         "gulp-version-number": "^0.2.4",
         "imagemin": "^8.0.1",
+        "normalize-scss": "^7.0.1",
         "sass": "^1.54.0",
         "webpack": "^5.74.0",
         "webpack-stream": "^7.0.0"
