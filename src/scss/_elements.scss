@@ -1,66 +1,81 @@
 // buttons
 
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 207px;
-    height: 52px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 400;
-    font-size: 17px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    color: #292929;
-    background-color: #F1CDB3;
-    border-radius: 30px;
-    border: 2px solid #F1CDB3;
-    &_white {
-        background-color: #fff;
-    }
-    &_round {
-        border-radius: 50%;
-        padding: 0;
-        width: 52px;
-        height: 52px;
-        background-position: center;
-        background-repeat: no-repeat;
-        font-size: 20px;
-    }
-    &_arrow-right {
-        background-image: url('../img/arrow-left');
-        transform: rotate(120deg);
-    }
-    &_arrow-left {
-        background-image: url('../img/arrow-left');
-    }
-    &_close {
-        background-image: url('../img/close.svg');
-    }
-    &_active {
-        background-color: #F1CDB3;
-    }
-    &_menu {
-        background-image: url('../img/burger.svg');
-        &.active {
-            transform: rotate(180deg);
-            transition: transform 0.3s ease;
-        }
-    }
-    &:disabled {
-        border-color: #CDCDCD;
-        color: #CDCDCD;
-        pointer-events: none;
-    }
-    &:hover {
-        background-color: #FDDCC4;
-        border-color: #FDDCC4;
-        transition: all 0.3ms ease;
-        color: #292929;
-    }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 207px;
+	height: 52px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 400;
+	font-size: 17px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	color: #292929;
+	background-color: #f1cdb3;
+	border-radius: 30px;
+	border: 2px solid #f1cdb3;
+	transition: transform 0.3s ease;
+	&_white {
+		background-color: #fff;
+	}
+	&_round {
+		border-radius: 50%;
+		padding: 0;
+		width: 52px;
+		height: 52px;
+		background-position: center;
+		background-repeat: no-repeat;
+		font-size: 20px;
+	}
+	&_arrow-right {
+		background-image: url("../img/arrow-left");
+		transform: rotate(120deg);
+	}
+	&_arrow-left {
+		background-image: url("../img/arrow-left");
+	}
+	&_close {
+		background-image: url("../img/close.svg");
+	}
+	&_active {
+		background-color: #f1cdb3;
+	}
+	&_menu {
+		background-image: url("../img/burger.svg");
+		&.active {
+			transform: rotate(90deg);
+		}
+	}
+	&:disabled {
+		border-color: #cdcdcd;
+		color: #cdcdcd;
+		pointer-events: none;
+	}
+	&:hover {
+		background-color: #fddcc4;
+		border-color: #fddcc4;
+		transition: all 0.3ms ease;
+		color: #292929;
+	}
+}
+
+// menu
+
+.menu_list {
+	display: flex;
+	.menu_list_item {
+		text-align: center;
+	}
+	.menu_link {
+		display: inline-block;
+		font-family: Arial, Helvetica, sans-serif;
+		color: #cdcdcd;
+		&:hover {
+			border-bottom: solid 3px #f1cdb3;
+			// box-shadow: 0 3px 0 0 #F1CDB3;
+		}
+	}
 }
 
 // cards
-
-
-

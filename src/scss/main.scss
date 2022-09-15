@@ -1,34 +1,34 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 img {
-    display: block;
-    max-width: 100%;
+	display: block;
+	max-width: 100%;
 }
 
 button {
-    border: none;
-    outline: none;
-    cursor: pointer;
+	border: none;
+	outline: none;
+	cursor: pointer;
 }
 
 a {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 li {
-    list-style-type: none;
+	list-style-type: none;
 }
 
 .d-none {
-    display: none;
+	display: none;
 }
 
 .d-flex {
-    display: flex;
+	display: flex;
 }
 
 // оптимизация размера картинок
@@ -46,7 +46,6 @@ li {
 	}
 }
 
-
 @import "variables";
 @import "vendors";
 @import "mixins";
@@ -54,19 +53,20 @@ li {
 @import "typography";
 @import "elements";
 @import "header";
+@import "modals";
 
 .container {
-    max-width: 100%;
-    padding: 0 10px;
-    margin: 0 auto;
-    @include devices (md) {
-      max-width: 768px;
-      padding: 0 30px;
-    }
-    @include devices (lg) {
-      max-width: 1280px;
-      padding: 0 40px;
-    }
+	max-width: 100%;
+	padding: 0 10px;
+	margin: 0 auto;
+	@include devices(md) {
+		max-width: 768px;
+		padding: 0 30px;
+	}
+	@include devices(lg) {
+		max-width: 1280px;
+		padding: 0 40px;
+	}
 }
 
 // * {

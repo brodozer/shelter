@@ -1,0 +1,43 @@
+.popup_menu {
+	position: fixed;
+	opacity: 0;
+	visibility: hidden;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.2);
+	transition: opacity 0.2s ease;
+	&.active {
+		opacity: 1;
+		visibility: visible;
+		.header_menu {
+			//transform: translateX(0);
+			right: 0;
+		}
+	}
+	.header_menu {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		//transform: translateX(100%);
+		right: -320px;
+		transition: right 0.3s ease;
+		background: #292929;
+		@include devices(sm) {
+			width: 320px;
+		}
+		.menu_list {
+			flex-direction: column;
+			gap: 40px;
+			.menu_link {
+				font-size: 32px;
+				padding-bottom: 4px;
+			}
+		}
+	}
+}
