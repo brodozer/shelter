@@ -5,12 +5,15 @@
         })
     </head>
     <body>
-        @@include('common/header.html', {})
+		<header class="main">
+			@@include('common/header.html', {})
+		</header>
         <main>
-            @@include('includes/index/about.html')
-            @@include('includes/index/pets.html')
-            @@include('includes/index/help.html')
-            @@include('includes/index/donation.html')
+			@@include('common/main_screen.html')
+            @@include('common/about.html')
+            <!-- @@include('common/pets.html') -->
+            <!-- @@include('common/help.html') -->
+            <!-- @@include('common//donation.html') -->
         </main>
         @@include('common/footer.html', {})
         @@include('common/modals.html', {})

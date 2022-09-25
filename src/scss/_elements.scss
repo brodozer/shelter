@@ -15,7 +15,7 @@
 	background-color: #f1cdb3;
 	border-radius: 30px;
 	border: 2px solid #f1cdb3;
-	transition: transform 0.3s ease;
+	transition: transform, background-color 0.3s ease;
 	&_white {
 		background-color: #fff;
 	}
@@ -55,7 +55,6 @@
 	&:hover {
 		background-color: #fddcc4;
 		border-color: #fddcc4;
-		transition: all 0.3ms ease;
 		color: #292929;
 	}
 }
@@ -71,10 +70,15 @@
 		display: inline-block;
 		font-family: Arial, Helvetica, sans-serif;
 		color: #cdcdcd;
-		&:hover {
+		border-bottom: solid 3px transparent;
+		transition: border 0.3s ease;
+		&.active {
 			border-bottom: solid 3px #f1cdb3;
-			// box-shadow: 0 3px 0 0 #F1CDB3;
 		}
+		// &:hover {
+		// 	border-bottom: solid 3px #f1cdb3;
+		// 	// box-shadow: 0 3px 0 0 #F1CDB3;
+		// }
 	}
 }
 

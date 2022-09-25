@@ -1,22 +1,19 @@
-header {
-	background: url("../img/header_lines.png"),
-		radial-gradient(farthest-corner at 40px 40px, #5b483a 0%, #262425 100%),
-		#211f20;
+header.main .header {
+	@include devices(lg) {
+		padding-top: 61px;
+	}
 }
 
 .header {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 30px 0 60px;
+	height: 120px;
 	width: 257px;
 	position: relative;
 	z-index: 2;
 	@include devices(sm) {
 		width: 100%;
-	}
-	@include devices(lg) {
-		padding: 59px 0;
 	}
 	.header_title {
 		color: #f1cdb3;
@@ -34,7 +31,7 @@ header {
 	}
 	.header_menu {
 		align-items: center;
-		margin-top: -6px;
+		margin-top: -2px;
 		display: none;
 		@include devices(md) {
 			display: flex;
@@ -57,66 +54,6 @@ header {
 		background-image: url("../img/burger.svg");
 		@include devices(md) {
 			display: none;
-		}
-	}
-}
-
-.main_screen {
-	@include devices(lg) {
-		display: flex;
-		.main_screen__cover {
-			padding-top: 164px;
-		}
-	}
-	h3 {
-		color: #fff;
-		letter-spacing: 0.06em;
-		@include devices(md) {
-			font-size: 44px;
-			line-height: 57px;
-			letter-spacing: normal;
-		}
-	}
-	h3,
-	.descriptions {
-		text-align: center;
-		@include devices(md) {
-			text-align-last: left;
-		}
-	}
-	.descriptions {
-		padding: 42px 0;
-		line-height: 24px;
-		color: #cdcdcd;
-		@include devices(lg) {
-			padding: 41px 0 42px;
-		}
-	}
-	.btn {
-		margin: 0 auto;
-		@include devices(lg) {
-			margin: 0;
-		}
-	}
-	.img_container {
-		margin-top: 105px;
-		padding-left: 40px;
-		@include devices(md) {
-			margin-top: 100px;
-			padding-left: 140px;
-		}
-		@include devices(lg) {
-			margin: 0;
-			padding-left: 42px;
-		}
-	}
-	.main_screen__cover {
-		@include devices(md) {
-			max-width: 460px;
-			margin: 0 auto;
-		}
-		@include devices(lg) {
-			margin: 0;
 		}
 	}
 }

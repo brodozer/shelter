@@ -1,46 +1,60 @@
 // headers
-
-h2, h3, h4, p.georgia {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-weight: 400;
+h1,
+h2,
+h3,
+h4,
+p.georgia {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-weight: 400;
 }
 
 h2 {
-    font-size: 32px;
-    //font-size: 44px;
+	font-size: 32px;
+	//font-size: 44px;
 }
 
 h3 {
-    font-size: 25px;
-    //font-size: 35px;
+	font-size: 25px;
+	text-align: center;
+	letter-spacing: 0.06em;
+	@include devices(md) {
+		font-size: 35px;
+		text-align-last: left;
+	}
+	//font-size: 35px;
 }
 
 h4 {
-    font-size: 20px;
+	font-size: 20px;
 }
 
-h2, h3, h4 {
-    color: #545454;
+h1,
+h2,
+h3,
+h4 {
+	color: #545454;
 }
 
 // paragraphs
 
-p.arial, p.italic {
-    font-family: Arial, Helvetica, sans-serif;
+p.arial,
+p.italic {
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 p.arial {
-    font-size: 15px;
-    color: #4C4C4C;
+	font-size: 15px;
+	color: #4c4c4c;
+	line-height: 24px;
 }
 
 p.italic {
-    font-size: 12px;
-    font-style: italic;
-    color: #B2B2B2;
+	font-size: 12px;
+	font-style: italic;
+	color: #b2b2b2;
 }
 
 p.georgia {
-    font-size: 15px;
-    color: #000;
+	font-size: 15px;
+	color: #000;
 }
