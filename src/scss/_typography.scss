@@ -9,8 +9,7 @@ p.georgia {
 }
 
 h2 {
-	font-size: 32px;
-	//font-size: 44px;
+	font-size: 25px;
 }
 
 h3 {
@@ -19,9 +18,8 @@ h3 {
 	letter-spacing: 0.06em;
 	@include devices(md) {
 		font-size: 35px;
-		text-align-last: left;
+		text-align: left;
 	}
-	//font-size: 35px;
 }
 
 h4 {

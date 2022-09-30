@@ -37,6 +37,9 @@ li {
 	overflow: hidden;
 	padding-bottom: 56.25%; // 16:9
 	height: 0;
+	&.square {
+		padding-bottom: 100%;
+	}
 	img,
 	video,
 	iframe {
@@ -58,6 +61,8 @@ li {
 @import "header";
 @import "main_screen";
 @import "about";
+@import "our_friends";
+// @import "help";
 @import "modals";
 
 .container {

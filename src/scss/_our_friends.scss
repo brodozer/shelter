@@ -1,0 +1,52 @@
+.our_friends {
+	background-color: #f6f6f6;
+	h3 {
+		text-align: center;
+	}
+	.swiper_container {
+		position: relative;
+		padding: 42px 0 72px;
+		@include devices(md) {
+			padding: 60px 0;
+			.swiper_friends {
+				width: 580px;
+			}
+		}
+		@include devices(lg) {
+			.swiper_friends {
+				width: 990px;
+			}
+		}
+		.swiper_btns {
+			position: absolute;
+			display: flex;
+			justify-content: space-between;
+			width: 184px;
+			left: 50%;
+			bottom: 0;
+			transform: translate3d(-50%, 0, 0);
+			@include devices(md) {
+				width: 100%;
+				bottom: auto;
+				top: 50%;
+				left: auto;
+				transform: translate3d(0, -50%, 0);
+			}
+		}
+		.img-wrapper {
+			border-top-left-radius: 9px;
+			border-top-right-radius: 9px;
+		}
+	}
+	.btn-wrapper {
+		display: flex;
+		justify-content: center;
+		margin-top: 42px;
+		@include devices(md) {
+			margin-top: 0;
+		}
+		.btn {
+			width: 260px;
+		}
+	}
+}

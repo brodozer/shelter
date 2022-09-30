@@ -1,5 +1,7 @@
 .about {
+	padding-bottom: 34px;
 	@include devices(md) {
+		padding-bottom: 94px;
 		.container {
 			padding: 0 169px;
 		}

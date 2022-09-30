@@ -33,7 +33,13 @@ const path = {
 	},
 
 	source: {
-		html: source + "/pages/*.html",
+		// html: source + "/pages/*.html",
+		// html: [source + "/pages/index.html", source + "/pages/pets.html"],
+		html: [
+			source + "/pages/*.html",
+			"!" + source + "/pages/common/**/*.html",
+			"!" + source + "/pages/includes/**/*.html",
+		],
 		js: source + "/js/main.js",
 		scss: source + "/scss/main.scss",
 		img: source + "/img/**/**.{jpg,jpeg,png,svg}",
@@ -163,7 +169,7 @@ const js = () => {
 				},
 			})
 		)
-		.pipe(gulp.dest(path.prod.js))
+		.pipe(gulp.dest(path.prod.js, { sourcemaps: "." }))
 		.pipe(browserSync.stream());
 };
 
@@ -226,4 +232,4 @@ export const start = gulp.series(
 	gulp.parallel(watchFiles, webServer)
 );
 export const build = gulp.series(clean, html, scss, js, fonts, images);
-export { images };
+export { images }; // gulp images (only compress imgs)
