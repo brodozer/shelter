@@ -6,6 +6,9 @@
 			padding: 0 169px;
 		}
 	}
+	@include devices(lg) {
+		padding-bottom: 35px;
+	}
 	h3 {
 		margin-bottom: 24px;
 	}

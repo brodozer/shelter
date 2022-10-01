@@ -1,0 +1,52 @@
+.help {
+	padding-top: 41px;
+	@include devices(md) {
+		padding-top: 83px;
+		h3 {
+			text-align: center;
+		}
+	}
+	.help_list {
+		margin-top: 42px;
+		padding: 0 5px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 30px;
+		@include devices(md) {
+			margin-top: 59px;
+			padding: 0 36px;
+			row-gap: 55px;
+			column-gap: 60px;
+		}
+		@include devices(lg) {
+			justify-content: center;
+			column-gap: 120px;
+		}
+		.list_item {
+			width: calc(50% - 15px);
+			@include devices(md) {
+				width: calc(33.333% - 40px);
+			}
+			@include devices(lg) {
+				width: auto;
+			}
+			img {
+				margin: 0 auto;
+				width: 50px;
+				@include devices(md) {
+					width: 60px;
+				}
+			}
+			p {
+				padding-top: 19px;
+				text-align: center;
+				font-size: 16px;
+				letter-spacing: 0.06em;
+				@include devices(md) {
+					padding-top: 30px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
