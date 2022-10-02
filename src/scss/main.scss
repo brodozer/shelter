@@ -63,6 +63,7 @@ li {
 @import "about";
 @import "our_friends";
 @import "help";
+@import "donation";
 @import "modals";
 
 .container {
@@ -84,7 +85,7 @@ section {
 	@include devices(md) {
 		padding: 80px 0 100px;
 	}
-	.gray {
+	&.gray {
 		background-color: #f6f6f6;
 	}
 }

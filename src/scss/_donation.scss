@@ -1,0 +1,79 @@
+.donation {
+	@include devices(md) {
+		.donation_info {
+			max-width: 380px;
+			margin: 0 auto;
+			text-align: left;
+		}
+	}
+	@include devices(lg) {
+		.donation_wrapper {
+			display: flex;
+		}
+		.donation_info {
+			order: 2;
+			margin-left: 30px;
+		}
+	}
+	.bank {
+		padding-top: 20px;
+		.bank_name,
+		.bank_account {
+			color: #545454;
+		}
+		.bank_name {
+			text-align: center;
+			@include devices(md) {
+				text-align: left;
+				letter-spacing: 1px;
+			}
+		}
+		.bank_account {
+			margin: 23px auto 20px;
+			padding: 13px 0 13px 60px;
+			width: 281px;
+			border-radius: 9px;
+			background-color: #f1cdb3;
+			background-image: url("../img/credit-card.svg");
+			background-repeat: no-repeat;
+			background-size: 30px 23px;
+			background-position: 15px center;
+			font-size: 15px;
+			letter-spacing: 0.06em;
+			@include devices(md) {
+				margin: 16px 0;
+				width: 349px;
+				font-size: 20px;
+				line-height: 23px;
+			}
+			sub,
+			small {
+				font-size: inherit;
+			}
+			sub {
+				vertical-align: baseline;
+			}
+		}
+		.terms_of_use {
+			padding: 0 10px;
+			text-align: justify;
+			line-height: 18px;
+			@include devices(md) {
+				padding: 0;
+			}
+		}
+	}
+	.img-wrapper {
+		padding: 40px 18px 0 18px;
+		@include devices(md) {
+			padding-top: 61px;
+		}
+		@include devices(lg) {
+			order: 1;
+			padding: 11px 0 0 142px;
+		}
+		img {
+			margin: 0 auto;
+		}
+	}
+}

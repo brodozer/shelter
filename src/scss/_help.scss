@@ -1,7 +1,7 @@
 .help {
-	padding-top: 41px;
+	padding: 41px 0;
 	@include devices(md) {
-		padding-top: 83px;
+		padding: 83px 0 100px;
 		h3 {
 			text-align: center;
 		}
