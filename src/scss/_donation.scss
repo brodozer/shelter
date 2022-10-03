@@ -1,5 +1,7 @@
 .donation {
+	padding-bottom: 41px;
 	@include devices(md) {
+		padding-bottom: 99px;
 		.donation_info {
 			max-width: 380px;
 			margin: 0 auto;

@@ -64,6 +64,7 @@ li {
 @import "our_friends";
 @import "help";
 @import "donation";
+@import "footer";
 @import "modals";
 
 .container {
@@ -88,6 +89,12 @@ section {
 	&.gray {
 		background-color: #f6f6f6;
 	}
+}
+
+.gradient {
+	background: url("../img/header_lines.png"),
+		radial-gradient(farthest-corner at 40px 40px, #5b483a 0%, #262425 100%),
+		#211f20;
 }
 
 // * {
