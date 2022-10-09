@@ -22,6 +22,7 @@ const disabled = () => {
 };
 
 import { unlockScroll } from "./menu.js";
+import { changeScreenWidth, screenWidth, qty } from "./pagination.js";
 
 // lockScroll();
 // disabled();
@@ -57,4 +58,9 @@ const swiper = new Swiper(".swiper_friends", {
 		nextEl: ".btn_arrow-right",
 		prevEl: ".btn_arrow-left",
 	},
+});
+
+changeScreenWidth(screenWidth, qty);
+window.addEventListener("resize", () => {
+	changeScreenWidth(screenWidth, qty);
 });

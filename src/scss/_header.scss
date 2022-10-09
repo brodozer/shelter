@@ -57,3 +57,19 @@ header.main .header {
 		}
 	}
 }
+
+header.light {
+	.header_title,
+	.menu_link {
+		color: #545454;
+	}
+	.header_subtitle {
+		color: #292929;
+	}
+	.menu_link.active {
+		color: #292929;
+	}
+	.btn_menu {
+		background-image: url("../img/burger-light.svg");
+	}
+}
