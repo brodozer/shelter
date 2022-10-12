@@ -33,8 +33,6 @@ const path = {
 	},
 
 	source: {
-		// html: source + "/pages/*.html",
-		// html: [source + "/pages/index.html", source + "/pages/pets.html"],
 		html: [
 			source + "/pages/*.html",
 			"!" + source + "/pages/common/**/*.html",
@@ -139,7 +137,7 @@ const scss = () => {
 
 const js = () => {
 	return gulp
-		.src(path.source.js, { sourcemaps: !isProd })
+		.src(path.source.js)
 		.pipe(
 			webpack({
 				mode: isProd ? "production" : "development",
@@ -167,9 +165,10 @@ const js = () => {
 						},
 					],
 				},
+				devtool: !isProd ? "source-map" : false,
 			})
 		)
-		.pipe(gulp.dest(path.prod.js, { sourcemaps: "." }))
+		.pipe(gulp.dest(path.prod.js))
 		.pipe(browserSync.stream());
 };
 

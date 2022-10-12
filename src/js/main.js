@@ -1,3 +1,4 @@
+const containerCards = document.querySelector(".container_cards");
 const body = document.body;
 const counter = 25;
 const btn = body.querySelector(".btn_disable");
@@ -17,12 +18,19 @@ const lockScroll = () => {
 	console.log("scroll lock");
 };
 
+const ifDefined = (el) => {
+	if (typeof el === "undefined" || el === null) {
+		return false;
+	}
+	return true;
+};
+
 const disabled = () => {
 	btn.disabled = true;
 };
 
 import { unlockScroll } from "./menu.js";
-import { changeScreenWidth, screenWidth, qty } from "./pagination.js";
+import { changeScreenWidth } from "./pagination.js";
 
 // lockScroll();
 // disabled();
@@ -60,7 +68,9 @@ const swiper = new Swiper(".swiper_friends", {
 	},
 });
 
-changeScreenWidth(screenWidth, qty);
-window.addEventListener("resize", () => {
-	changeScreenWidth(screenWidth, qty);
-});
+if (ifDefined(containerCards)) {
+	changeScreenWidth(containerCards);
+	window.addEventListener("resize", () => {
+		changeScreenWidth(containerCards);
+	});
+}

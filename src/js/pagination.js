@@ -1,6 +1,3 @@
-const containerCards = document.querySelector(".container_cards");
-let screenWidth;
-let qty;
 const renderCards = (elem, qty) => {
 	if (elem.childElementCount !== qty) {
 		let html = "";
@@ -24,8 +21,9 @@ const renderCards = (elem, qty) => {
 	}
 };
 
-const changeScreenWidth = (screenWidth, qty) => {
-	screenWidth = window.innerWidth;
+const changeScreenWidth = (container) => {
+	let qty;
+	let screenWidth = window.innerWidth;
 	if (screenWidth >= 1280) {
 		qty = 8;
 	} else if (screenWidth >= 768) {
@@ -33,7 +31,9 @@ const changeScreenWidth = (screenWidth, qty) => {
 	} else {
 		qty = 3;
 	}
-	renderCards(containerCards, qty);
+	renderCards(container, qty);
 };
 
-export { changeScreenWidth, screenWidth, qty };
+// windows.location.pathname
+
+export { changeScreenWidth };
