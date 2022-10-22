@@ -35,7 +35,7 @@
 	background-color: #f1cdb3;
 	border-radius: 30px;
 	border: 2px solid #f1cdb3;
-	transition: transform, background-color 0.3s ease;
+	transition: background-color 0.3s;
 	&_white {
 		background-color: #fff;
 	}
@@ -71,9 +71,6 @@
 	}
 	&_menu {
 		background-image: url("../img/burger.svg");
-		&.active {
-			transform: rotate(90deg);
-		}
 	}
 	&_disabled {
 		border-color: #cdcdcd;

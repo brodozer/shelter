@@ -51,7 +51,6 @@ header.main .header {
 		background-color: transparent;
 		background-repeat: no-repeat;
 		background-position: center;
-		background-image: url("../img/burger.svg");
 		@include devices(md) {
 			display: none;
 		}
