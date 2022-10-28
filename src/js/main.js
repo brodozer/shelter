@@ -11,6 +11,14 @@ import { changeScreenWidth } from "./pagination.js";
 
 import { btnMenu, mobileMenu } from "./menu.js";
 
+import {
+	btnsLearnMore,
+	btnCloseModal,
+	modalClose,
+	modalOpen,
+	overlay,
+} from "./modal.js";
+
 import Swiper, { Navigation, Pagination } from "swiper";
 
 const swiper = new Swiper(".swiper_friends", {
@@ -49,4 +57,24 @@ if (ifDefined(containerCards)) {
 	});
 }
 
+overlay.addEventListener("click", (event) => {
+	const target = event.target;
+	if (
+		target.classList.contains("mobile_menu") &&
+		overlay.classList.contains("show_menu")
+	) {
+		mobileMenu();
+	}
+	if (
+		target.classList.contains("overlay") &&
+		overlay.classList.contains("show_modal")
+	) {
+		modalClose();
+	}
+});
+
 btnMenu.addEventListener("click", mobileMenu);
+btnCloseModal.addEventListener("click", modalClose);
+btnsLearnMore.forEach((btn) => {
+	btn.addEventListener("click", modalOpen);
+});

@@ -1,6 +1,7 @@
-import { overlay, lockScroll, unlockScroll } from "./modal.js";
+import { overlay, lockScroll, unlockScroll, modalClose } from "./modal.js";
 
 const btnMenu = document.querySelector(".btn_menu");
+const links = document.querySelectorAll(".menu_link");
 let isMenuOpen = false;
 const spinAnimation = {
 	keyframes: [{ transform: "rotate(0)" }, { transform: "rotate(90deg)" }],
@@ -34,47 +35,44 @@ const mobileMenu = () => {
 	}
 };
 
-const smoothScroll = () => {
-	const links = document.querySelectorAll(".menu_link");
-
-	links.forEach((link) => {
-		link.addEventListener("click", (e) => {
-			const id = link.getAttribute("href");
-			console.log("id ", id);
-			if (id.indexOf("#") !== -1) {
-				e.preventDefault();
-				if (isMenuOpen) {
-					mobileMenu();
-				}
-				links.forEach((link) => {
-					if (link.classList.contains("active")) {
-						link.classList.remove("active");
-					}
-				});
-				let currentLinks = document.querySelectorAll(`a[href="${id}"]`);
-				console.log("currentLinks ", currentLinks);
-				currentLinks.forEach((l) => {
-					l.classList.add("active");
-				});
-				document
-					.getElementById(id.substring(1))
-					.scrollIntoView({ behavior: "smooth" });
-			}
-		});
-	});
+const getQueryParam = (url) => {
+	if (url.indexOf("?") !== -1) {
+		const id = url.slice(url.indexOf("?") + 1).split("=")[1];
+		smoothScroll(id);
+	}
 };
 
-overlay.addEventListener("click", (event) => {
-	const target = event.target;
-	console.log("target ", target);
-	if (
-		target.classList.contains("mobile_menu") &&
-		overlay.classList.contains("show_menu")
-	) {
+const smoothScroll = (id) => {
+	console.log("id ", id);
+
+	if (window.location.pathname === "/pets.html" && id !== "#contacts") {
+		window.location.href = `${window.location.origin}/index.html?id=${id}`;
+	}
+	if (isMenuOpen) {
 		mobileMenu();
 	}
+	links.forEach((link) => {
+		if (link.classList.contains("active")) {
+			link.classList.remove("active");
+		}
+	});
+	let currentLinks = document.querySelectorAll(`a[href="${id}"]`);
+	console.log("currentLinks ", currentLinks);
+	currentLinks.forEach((l) => {
+		l.classList.add("active");
+	});
+	document
+		.getElementById(id.substring(1))
+		.scrollIntoView({ behavior: "smooth" });
+};
+
+links.forEach((link) => {
+	link.addEventListener("click", function (e) {
+		e.preventDefault();
+		smoothScroll(link.getAttribute("href"));
+	});
 });
 
-smoothScroll();
+getQueryParam(window.location.href);
 
 export { btnMenu, mobileMenu };

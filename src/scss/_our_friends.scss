@@ -36,6 +36,9 @@
 				transform: translate3d(0, -50%, 0);
 			}
 		}
+		.swiper {
+			z-index: 0 !important;
+		}
 		.img-wrapper {
 			border-top-left-radius: 9px;
 			border-top-right-radius: 9px;
