@@ -3,7 +3,6 @@ import { pets } from "./pets.js";
 const overlay = document.querySelector(".overlay");
 const modalContainer = overlay.querySelector(".modal_container");
 console.log("modal_container ", modalContainer);
-const btnsLearnMore = document.querySelectorAll(".learn_more");
 const btnCloseModal = document.querySelector(".btn_close");
 const body = document.body;
 
@@ -55,9 +54,9 @@ const renderModal = (id) => {
 	`;
 };
 
-const modalOpen = (event) => {
-	const target = event.target;
-	const path = target.dataset.path;
+const modalOpen = (btn) => {
+	// debugger;
+	const path = btn.dataset.path;
 	modalContainer.innerHTML = renderModal(path);
 	lockScroll();
 	overlay.classList.add("show_modal");
@@ -70,12 +69,26 @@ const modalClose = () => {
 	console.log("modal close");
 };
 
-export {
-	overlay,
-	lockScroll,
-	unlockScroll,
-	btnsLearnMore,
-	btnCloseModal,
-	modalClose,
-	modalOpen,
+const overlayHandler = (event) => {
+	const target = event.target;
+	if (
+		target.classList.contains("mobile_menu") &&
+		overlay.classList.contains("show_menu")
+	) {
+		mobileMenu();
+	}
+	if (
+		target.classList.contains("overlay") &&
+		overlay.classList.contains("show_modal")
+	) {
+		modalClose();
+	}
 };
+
+const initModal = () => {
+	btnCloseModal.addEventListener("click", modalClose);
+	overlay.addEventListener("click", overlayHandler);
+	console.log("init modal -----");
+};
+
+export { overlay, lockScroll, unlockScroll, modalClose, modalOpen, initModal };

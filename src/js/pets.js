@@ -1,5 +1,6 @@
 export const pets = [
 	{
+		id: 0,
 		name: "Jennifer",
 		img: "img/pets-jennifer.jpg",
 		type: "Dog",
@@ -12,6 +13,7 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 1,
 		name: "Sophia",
 		img: "img/pets-sophia.jpg",
 		type: "Dog",
@@ -24,6 +26,7 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 2,
 		name: "Woody",
 		img: "img/pets-woody.jpg",
 		type: "Dog",
@@ -36,8 +39,9 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 3,
 		name: "Scarlett",
-		img: "img/pets-scarlett.jpg",
+		img: "img/pets-scarlet.jpg",
 		type: "Dog",
 		breed: "Jack Russell Terrier",
 		description:
@@ -48,6 +52,7 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 4,
 		name: "Katrine",
 		img: "img/pets-katrine.jpg",
 		type: "Cat",
@@ -60,6 +65,7 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 5,
 		name: "Timmy",
 		img: "img/pets-timmy.jpg",
 		type: "Cat",
@@ -72,6 +78,7 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 6,
 		name: "Freddie",
 		img: "img/pets-freddie.jpg",
 		type: "Cat",
@@ -84,6 +91,7 @@ export const pets = [
 		parasites: ["none"],
 	},
 	{
+		id: 7,
 		name: "Charly",
 		img: "img/pets-charly.jpg",
 		type: "Dog",

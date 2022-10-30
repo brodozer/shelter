@@ -1,3 +1,5 @@
+// import renderCards  from slider.js
+// добавить отдельную ф-ю, которая будет вызывать renderCards и проверять кол-во карточек в зависимости от ширины экрана
 const renderCards = (elem, qty) => {
 	if (elem.childElementCount !== qty) {
 		let html = "";
