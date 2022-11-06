@@ -1,4 +1,5 @@
 import { pets } from "./pets.js";
+import { mobileMenu } from "./menu.js";
 
 const overlay = document.querySelector(".overlay");
 const modalContainer = overlay.querySelector(".modal_container");

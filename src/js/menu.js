@@ -78,4 +78,4 @@ const initMobileMenu = () => {
 	btnMenu.addEventListener("click", mobileMenu);
 };
 
-export { initMobileMenu };
+export { initMobileMenu, mobileMenu };

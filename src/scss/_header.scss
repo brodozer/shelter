@@ -11,7 +11,7 @@ header.main .header {
 	height: 120px;
 	width: 257px;
 	position: relative;
-	z-index: 2;
+	// z-index: 2;
 	@include devices(sm) {
 		width: 100%;
 	}
