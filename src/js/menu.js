@@ -1,7 +1,8 @@
 import { overlay, lockScroll, unlockScroll, modalClose } from "./modal.js";
 
 const btnMenu = document.querySelector(".btn_menu");
-const links = document.querySelectorAll(".menu_link");
+const links = document.querySelectorAll(".menu_link, .btn_make-friend");
+console.log("links ", links);
 let isMenuOpen = false;
 const spinAnimation = {
 	keyframes: [{ transform: "rotate(0)" }, { transform: "rotate(90deg)" }],
@@ -66,13 +67,15 @@ const smoothScroll = (id) => {
 		.scrollIntoView({ behavior: "smooth" });
 };
 
-links.forEach((link) => {
-	link.addEventListener("click", function (e) {
-		e.preventDefault();
-		smoothScroll(link.getAttribute("href"));
+const initMobileMenu = () => {
+	links.forEach((link) => {
+		link.addEventListener("click", function (e) {
+			e.preventDefault();
+			smoothScroll(link.getAttribute("href"));
+		});
 	});
-});
+	getQueryParam(window.location.href);
+	btnMenu.addEventListener("click", mobileMenu);
+};
 
-getQueryParam(window.location.href);
-
-export { btnMenu, mobileMenu };
+export { initMobileMenu };

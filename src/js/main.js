@@ -1,5 +1,3 @@
-const containerCards = document.querySelector(".container_cards");
-
 const ifDefined = (el) => {
 	if (typeof el === "undefined" || el === null) {
 		return false;
@@ -7,23 +5,16 @@ const ifDefined = (el) => {
 	return true;
 };
 
-import { initSlider, swiperWrapper } from "./slider.js";
-import { changeScreenWidth } from "./pagination.js";
-import { btnMenu, mobileMenu } from "./menu.js";
+import { initSlider, swiperFriends } from "./slider.js";
+import { initPagination, swiperPagination } from "./pagination.js";
+import { initMobileMenu } from "./menu.js";
 import { initModal } from "./modal.js";
 
-if (ifDefined(containerCards)) {
-	// не нужно отслеживать ширину, проверка только после перезагрузки страницы!!!
-	changeScreenWidth(containerCards);
-	window.addEventListener("resize", () => {
-		changeScreenWidth(containerCards);
-	});
+initMobileMenu();
+if (ifDefined(swiperPagination)) {
+	initPagination();
 }
-
-btnMenu.addEventListener("click", mobileMenu);
-
-// initMobileMenu();
 initModal();
-if (ifDefined(swiperWrapper)) {
+if (ifDefined(swiperFriends)) {
 	initSlider();
 }

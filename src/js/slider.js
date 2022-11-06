@@ -1,8 +1,8 @@
 import { pets } from "./pets.js";
 import { modalOpen } from "./modal.js";
 import anime from "animejs/lib/anime.es.js";
-// import Swiper, { Navigation, Pagination } from "swiper"; .. подключить на странице pets!
 
+const swiperFriends = document.querySelector(".swiper_friends");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 const btnPrevSlide = document.querySelector(".btn_arrow-left");
 const btnNextSlide = document.querySelector(".btn_arrow-right");
@@ -16,21 +16,19 @@ const slides = {
 	prev: null,
 };
 
-const randomNumber = () => Math.round(Math.random() * (pets.length - 1));
+const getRandomNumber = () => Math.round(Math.random() * (pets.length - 1));
 
-const searchCard = (slide, id) => {
-	if (
-		slide.length === 0 ||
-		slide.findIndex((card) => card.name === pets[id].name) === -1
-	) {
+const isUniqCard = (slide, index) => {
+	if (slide.length === 0) {
 		return true;
-	} else return false;
+	} else
+		return slide.findIndex((card) => card.name === pets[index].name) == -1;
 };
 
 const getCard = (slide) => {
-	let id = randomNumber();
-	if (searchCard(slide, id) && searchCard(currSlide, id)) {
-		slide.push(pets[id]);
+	let index = getRandomNumber();
+	if (isUniqCard(slide, index, pets) && isUniqCard(currSlide, index, pets)) {
+		slide.push(pets[index]);
 	} else {
 		getCard(slide);
 	}
@@ -60,27 +58,25 @@ const renderCards = (cards, elem) => {
 	elem.innerHTML = html;
 };
 
-const renderCurrentSlide = (slide) => {
+const renderCurrentSlide = (slide, classes) => {
 	const swiperSlide = document.createElement("div");
-	swiperSlide.className = "swiper-slide";
+	swiperSlide.className = classes;
 	console.log("swiper slide ", swiperSlide);
 	renderCards(slide, swiperSlide);
-	// может здесь инжектить слайд
 	return swiperSlide;
 };
 
 const getCountCards = (page) => {
-	// @page => pets or main
+	// @page => string = pets or main
 	const count = {
 		main: [1, 2, 3],
 		pets: [3, 6, 8],
 	};
-	// использовать эту ф-ю для определения кол-ва карточек на странице pets.html
 	const windowWidth = window.innerWidth;
 	let countCards;
-	if (windowWidth <= 768) {
+	if (windowWidth < 768) {
 		countCards = count[page][0];
-	} else if (windowWidth > 768 && windowWidth < 1268) {
+	} else if (windowWidth >= 768 && windowWidth < 1268) {
 		countCards = count[page][1];
 	} else {
 		countCards = count[page][2];
@@ -89,7 +85,6 @@ const getCountCards = (page) => {
 };
 
 const getCurrentSlide = (slide) => {
-	// чтобы была возможность генерировать слайды из готовых данных
 	if (!slide) {
 		slide = [];
 	}
@@ -98,7 +93,7 @@ const getCurrentSlide = (slide) => {
 	}
 	currSlide = slide;
 	console.log("slide ", currSlide);
-	return renderCurrentSlide(slide);
+	return renderCurrentSlide(slide, "swiper-slide");
 };
 
 const modalPets = (event) => {
@@ -112,7 +107,6 @@ const modalPets = (event) => {
 const rebindSlide = (slide, position) => {
 	// @slide -> string
 	if (slides[slide]) {
-		// debugger;
 		slides.current = slides[slide];
 		slides[slide] = null;
 		slides.current.style.cssText = "";
@@ -160,4 +154,13 @@ const initSlider = () => {
 	console.log("init slider----");
 };
 
-export { swiperWrapper, randomNumber, getCountCards, initSlider };
+export {
+	swiperFriends,
+	getRandomNumber,
+	getCountCards,
+	initSlider,
+	renderCards,
+	isUniqCard,
+	renderCurrentSlide,
+	modalPets,
+};

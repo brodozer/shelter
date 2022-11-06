@@ -31,6 +31,12 @@
 	.footer_contacts,
 	.footer_location {
 		padding-bottom: 40px;
+		h3 {
+			margin: 0 auto;
+			@include devices(lg) {
+				margin-left: 0;
+			}
+		}
 		@include devices(md) {
 			padding-bottom: 66px;
 			width: calc(50% - 19px);

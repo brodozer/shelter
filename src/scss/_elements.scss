@@ -73,14 +73,16 @@
 		background-image: url("../img/burger.svg");
 	}
 	&_disabled {
-		border-color: #cdcdcd;
-		color: #cdcdcd;
-		pointer-events: none;
+		background-color: #fff !important;
+		border-color: #cdcdcd !important;
+		color: #cdcdcd !important;
+		pointer-events: none !important;
 	}
 	&:hover {
 		background-color: #fddcc4;
 		border-color: #fddcc4;
 		color: #292929;
+		cursor: pointer;
 	}
 }
 
