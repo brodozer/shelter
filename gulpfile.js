@@ -231,4 +231,4 @@ export const start = gulp.series(
 	gulp.parallel(watchFiles, webServer)
 );
 export const build = gulp.series(clean, html, scss, js, fonts, images);
-export { images }; // gulp images (only compress imgs)
+export { images, html }; // gulp images (only compress imgs)

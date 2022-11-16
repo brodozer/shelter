@@ -13,11 +13,12 @@ const swiperWrapper = document.querySelector(".swiper-wrapper");
 const currentPageNumber = document.querySelector(".current_page");
 const firstPageBtn = document.querySelector(".first_page");
 const lastPageBtn = document.querySelector(".last_page");
-const slides = [];
-const countCardsPerSlide = getCountCards("pets");
+let slides = [];
+let countCardsPerSlide = getCountCards("pets");
 const countCards = 48;
 const maxCountReplayPet = 8; // если поставить 6, то код падает, getCards возвращает undefined
 let countSlides = countCards / countCardsPerSlide;
+let swiper = null;
 
 const checkReplayPet = (index, slide) => {
 	if (slides.length === 0) {
@@ -47,19 +48,41 @@ const getSlide = () => {
 	slides.push(slide);
 };
 
-const initPagination = () => {
+const renderSwiper = () => {
+	if (swiperWrapper.querySelector(".swiper-slide")) {
+		swiperWrapper.innerHTML = "";
+		console.log("clear swiper wraper");
+	}
 	while (countSlides > 0) {
 		getSlide();
 		countSlides -= 1;
 	}
-	console.log("slides ", slides);
 	for (let i = 0; i < slides.length; i += 1) {
 		swiperWrapper.appendChild(
 			renderCurrentSlide(slides[i], "swiper-slide container_cards")
 		);
 	}
-	console.log(swiperWrapper);
-	const swiper = new Swiper(".swiper-pagination", {
+	console.log("render swiper -----");
+};
+
+const rebindPagination = () => {
+	slides = [];
+	renderSwiper();
+	swiper.update(true, false);
+};
+
+const windowResize = () => {
+	let cards = getCountCards("pets");
+	if (countCardsPerSlide !== cards) {
+		countCardsPerSlide = cards;
+		countSlides = countCards / countCardsPerSlide;
+		rebindPagination();
+	}
+};
+
+const initPagination = () => {
+	renderSwiper();
+	swiper = new Swiper(".swiper-pagination", {
 		modules: [Navigation],
 		speed: 400,
 		slidesPerView: 1,
@@ -96,8 +119,16 @@ const initPagination = () => {
 					lastPageBtn.classList.remove("btn_disabled");
 				}
 			},
+			update: function () {
+				currentPageNumber.innerHTML = 1;
+				firstPageBtn.classList.add("btn_disabled");
+				lastPageBtn.classList.remove("btn_disabled");
+				this.activeIndex = 0;
+				swiper.navigation.update();
+			},
 		},
 	});
+	window.addEventListener("resize", windowResize);
 };
 
 export { initPagination, swiperPagination };
