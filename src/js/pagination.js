@@ -122,7 +122,7 @@ const initPagination = () => {
 				currentPageNumber.innerHTML = 1;
 				firstPageBtn.classList.add("btn_disabled");
 				lastPageBtn.classList.remove("btn_disabled");
-				this.activeIndex = 0;
+				this.slideTo(0, 300);
 				this.navigation.update();
 			},
 		},
