@@ -18,7 +18,6 @@ let countCardsPerSlide = getCountCards("pets");
 const countCards = 48;
 const maxCountReplayPet = 8; // если поставить 6, то код падает, getCards возвращает undefined
 let countSlides = countCards / countCardsPerSlide;
-let swiper = null;
 
 const checkReplayPet = (index, slide) => {
 	if (slides.length === 0) {
@@ -65,24 +64,24 @@ const renderSwiper = () => {
 	console.log("render swiper -----");
 };
 
-const rebindPagination = () => {
+const rebindPagination = (swiper) => {
 	slides = [];
 	renderSwiper();
 	swiper.update(true, false);
 };
 
-const windowResize = () => {
+const windowResize = (swiper) => {
 	let cards = getCountCards("pets");
 	if (countCardsPerSlide !== cards) {
 		countCardsPerSlide = cards;
 		countSlides = countCards / countCardsPerSlide;
-		rebindPagination();
+		rebindPagination(swiper);
 	}
 };
 
 const initPagination = () => {
 	renderSwiper();
-	swiper = new Swiper(".swiper-pagination", {
+	const swiper = new Swiper(".swiper-pagination", {
 		modules: [Navigation],
 		speed: 400,
 		slidesPerView: 1,
@@ -124,11 +123,13 @@ const initPagination = () => {
 				firstPageBtn.classList.add("btn_disabled");
 				lastPageBtn.classList.remove("btn_disabled");
 				this.activeIndex = 0;
-				swiper.navigation.update();
+				this.navigation.update();
 			},
 		},
 	});
-	window.addEventListener("resize", windowResize);
+	window.addEventListener("resize", () => {
+		windowResize(swiper);
+	});
 };
 
 export { initPagination, swiperPagination };
