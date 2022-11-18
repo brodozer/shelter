@@ -21,7 +21,9 @@ const sass = gulpSass(dartSass);
 const prod = "prod"; // production folder
 const source = "src"; // source folder
 
-const isProd = process.argv.includes("--production");
+// const isProd = process.argv.includes("--production");
+const isProd = process.env.NODE_ENV === "production";
+console.log("isprod ", isProd);
 
 const path = {
 	prod: {
@@ -221,4 +223,4 @@ export const start = gulp.series(
 	gulp.parallel(watchFiles, webServer)
 );
 export const build = gulp.series(clean, html, scss, js, fonts, images);
-export { images, html }; // gulp images (only compress imgs)
+export { isProd };
