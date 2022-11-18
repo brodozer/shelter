@@ -13,6 +13,7 @@ import cleanCSS from "gulp-clean-css";
 import rename from "gulp-rename";
 import webpack from "webpack-stream";
 import gulpIf from "gulp-if";
+import webpackConfig from "./webpack.config.js";
 
 const sass = gulpSass(dartSass);
 
@@ -23,7 +24,6 @@ const source = "src"; // source folder
 
 // const isProd = process.argv.includes("--production");
 const isProd = process.env.NODE_ENV === "production";
-console.log("isprod ", isProd);
 
 const path = {
 	prod: {
@@ -140,26 +140,7 @@ const scss = () => {
 const js = () => {
 	return gulp
 		.src(path.source.js)
-		.pipe(
-			webpack({
-				mode: isProd ? "production" : "development",
-				output: {
-					filename: "main.min.js",
-				},
-				module: {
-					rules: [
-						{
-							test: /\.m?js$/,
-							exclude: /node_modules/,
-							use: {
-								loader: "babel-loader",
-							},
-						},
-					],
-				},
-				devtool: !isProd ? "source-map" : false,
-			})
-		)
+		.pipe(webpack(webpackConfig(isProd)))
 		.pipe(gulp.dest(path.prod.js))
 		.pipe(browserSync.stream());
 };
