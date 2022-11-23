@@ -10,6 +10,8 @@ import { initPagination, swiperPagination } from "./pagination.js";
 import { initMobileMenu } from "./menu.js";
 import { initModal } from "./modal.js";
 
+smoothscroll.polyfill();
+
 initMobileMenu();
 if (ifDefined(swiperPagination)) {
 	initPagination();

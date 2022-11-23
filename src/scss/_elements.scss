@@ -56,6 +56,13 @@
 	&_arrow-right {
 		transform: rotate(180deg);
 	}
+	&_up {
+		transform: rotate(90deg);
+		position: fixed;
+		right: 20px;
+		bottom: 20px;
+	}
+	&_up,
 	&_arrow-left,
 	&_arrow-right {
 		background-image: url("../img/arrow-left.svg");
